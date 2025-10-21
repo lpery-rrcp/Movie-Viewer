@@ -1,11 +1,11 @@
 import "./App.css";
+import MovieCard from "./components/MovieCard";
 
 function App() {
   return (
     <>
-      <div>
-        <p>Hello World</p>
-      </div>
+      <MovieCard title="Superman" url="" release_date="October 25, 2025" />
+      <MovieCard title="man" url="" release_date="October 25, 2005" />
     </>
   );
 }
