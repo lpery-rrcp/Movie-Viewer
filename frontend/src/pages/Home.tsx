@@ -20,6 +20,9 @@ function Home() {
             className="search input"
           />
         </form>
+        <button type="submit" className="search btn">
+          Search
+        </button>
 
         <div className="Movie grid">
           {movies.map((movie) => (
