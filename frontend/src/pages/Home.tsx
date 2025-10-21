@@ -8,9 +8,19 @@ function Home() {
     { id: 4, title: "Snow White", release_date: "1930" },
   ];
 
+  const handleSearch = () => {};
+
   return (
     <>
-      <div className="">
+      <div className="home">
+        <form onSubmit={handleSearch} className="search form">
+          <input
+            type="text"
+            placeholder="Search for movies ..."
+            className="search input"
+          />
+        </form>
+
         <div className="Movie grid">
           {movies.map((movie) => (
             <MovieCard
