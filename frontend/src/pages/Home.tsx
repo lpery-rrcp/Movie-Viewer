@@ -46,19 +46,27 @@ function Home() {
           </button>
         </form>
 
-        <div className="Movie grid">
-          {movies.map(
-            (movie) =>
-              movie.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                <MovieCard
-                  key={movie.id}
-                  title={movie.title}
-                  url={movie.poster_path}
-                  release_date={movie.release_date}
-                />
-              )
-          )}
-        </div>
+        {error && <div className="">{error}</div>}
+
+        {loading ? (
+          <div className="">Loading...</div>
+        ) : (
+          <div className="">
+            {movies.map(
+              (movie) =>
+                movie.title
+                  .toLowerCase()
+                  .includes(searchQuery.toLowerCase()) && (
+                  <MovieCard
+                    key={movie.id}
+                    title={movie.title}
+                    url={movie.poster_path}
+                    release_date={movie.release_date}
+                  />
+                )
+            )}
+          </div>
+        )}
       </div>
     </>
   );
