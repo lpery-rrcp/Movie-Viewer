@@ -25,9 +25,24 @@ function Home() {
     loadPopularMovies();
   }, []);
 
-  const handleSearch = (e: any) => {
+  const handleSearch = async (e: any) => {
     e.preventDefault();
-    alert(searchQuery);
+    if (!searchQuery.trim()) return;
+    if (loading) return;
+
+    setLoading(true);
+    try {
+      const SEARCH_RESULTS = await searchMovies(searchQuery);
+      setMovies(SEARCH_RESULTS);
+      setError(null);
+    } catch {
+      console.log(error);
+      setError("Failed to search movies");
+    } finally {
+      setLoading(false);
+    }
+
+    setSearchQuery("");
   };
 
   return (
@@ -52,19 +67,14 @@ function Home() {
           <div className="">Loading...</div>
         ) : (
           <div className="">
-            {movies.map(
-              (movie) =>
-                movie.title
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase()) && (
-                  <MovieCard
-                    key={movie.id}
-                    title={movie.title}
-                    url={movie.poster_path}
-                    release_date={movie.release_date}
-                  />
-                )
-            )}
+            {movies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                title={movie.title}
+                url={movie.poster_path}
+                release_date={movie.release_date}
+              />
+            ))}
           </div>
         )}
       </div>
