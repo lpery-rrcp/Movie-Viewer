@@ -13,7 +13,7 @@ function MovieCard({ title, url, release_date }: MovieCardProps) {
     <>
       <div className="">
         <div className="">
-          <img src={url} alt={title} />
+          <img src={`https://image.tmdb.org/t/p/w500${url}`} alt={title} />
           <div className="">
             <button className="Favorite-BTN" onClick={onFavoriteClick}>
               🤍

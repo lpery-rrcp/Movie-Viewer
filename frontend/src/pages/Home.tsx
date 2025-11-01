@@ -15,6 +15,7 @@ function Home() {
         const popularMovies = await getPopularMovies();
         setMovies(popularMovies);
       } catch (err) {
+        console.log(err);
         setError("Failed to load movies...");
       } finally {
         setLoading(false);
@@ -52,7 +53,7 @@ function Home() {
                 <MovieCard
                   key={movie.id}
                   title={movie.title}
-                  url=""
+                  url={movie.poster_path}
                   release_date={movie.release_date}
                 />
               )
