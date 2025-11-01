@@ -70,6 +70,7 @@ function Home() {
             {movies.map((movie) => (
               <MovieCard
                 key={movie.id}
+                id={movie.id}
                 title={movie.title}
                 url={movie.poster_path}
                 release_date={movie.release_date}

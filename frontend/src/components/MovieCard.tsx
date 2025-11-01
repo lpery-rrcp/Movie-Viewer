@@ -1,12 +1,20 @@
+import { useMovieContext } from "../context/MovieContext";
+
 interface MovieCardProps {
+  id: number;
   title: string;
   url: string;
   release_date: string;
 }
 
-function MovieCard({ title, url, release_date }: MovieCardProps) {
-  function onFavoriteClick() {
-    alert("Clicked");
+function MovieCard({ id, title, url, release_date }: MovieCardProps) {
+  const { isFavorite, addFavorite, removeFavorite } = useMovieContext();
+  const favorite = isFavorite(id);
+
+  function onFavoriteClick(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    if (favorite) removeFavorite(id);
+    else addFavorite({ id, title, url, release_date });
   }
 
   return (
@@ -14,8 +22,11 @@ function MovieCard({ title, url, release_date }: MovieCardProps) {
       <div className="">
         <div className="">
           <img src={`https://image.tmdb.org/t/p/w500${url}`} alt={title} />
-          <div className="">
-            <button className="Favorite-BTN" onClick={onFavoriteClick}>
+          <div className="  ">
+            <button
+              className={`fav_btn ${favorite ? "active" : ""}`}
+              onClick={onFavoriteClick}
+            >
               🤍
             </button>
           </div>
