@@ -33,7 +33,16 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
 
     if (storedFavs) {
       try {
-        setFavorites(JSON.parse(storedFavs));
+        const parsed: Movie[] = JSON.parse(storedFavs);
+
+        setFavorites(
+          parsed.map((fav) => ({
+            id: fav.id,
+            title: fav.title,
+            release_date: fav.release_date,
+            url: fav.url ?? fav.poster_path,
+          }))
+        );
       } catch {
         setFavorites([]);
       }

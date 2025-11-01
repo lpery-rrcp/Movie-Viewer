@@ -14,7 +14,7 @@ function MovieCard({ id, title, url, release_date }: MovieCardProps) {
   function onFavoriteClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     if (favorite) removeFavorite(id);
-    else addFavorite({ id, title, url, release_date });
+    else addFavorite({ id, title, release_date, url });
   }
 
   return (

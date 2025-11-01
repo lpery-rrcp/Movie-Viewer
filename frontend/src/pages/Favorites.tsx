@@ -14,7 +14,7 @@ function Favorite() {
               key={movie.id}
               id={movie.id}
               title={movie.title}
-              url={movie.poster_path}
+              url={movie.url}
               release_date={movie.release_date}
             />
           ))}
