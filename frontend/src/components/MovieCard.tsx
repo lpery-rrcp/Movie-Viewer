@@ -24,7 +24,7 @@ function MovieCard({ title, url, release_date }: MovieCardProps) {
 
       <div className="Movie info">
         <h3>{title}</h3>
-        <p>{release_date}</p>
+        <p>{release_date?.split("-")[0]}</p>
       </div>
     </>
   );
