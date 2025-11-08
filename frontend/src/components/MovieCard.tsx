@@ -19,22 +19,23 @@ function MovieCard({ id, title, url, release_date }: MovieCardProps) {
 
   return (
     <>
-      <div className="">
-        <div className="Movie info">
+      <div className="card">
+        <div className="card-body">
           <h3>{title}</h3>
           <p>{release_date?.split("-")[0]}</p>
         </div>
 
-        <div className="">
-          <img src={`https://image.tmdb.org/t/p/w500${url}`} alt={title} />
-          <div className="  ">
-            <button
-              className={`btn ${favorite ? "btn-success" : "btn-primary"}`}
-              onClick={onFavoriteClick}
-            >
-              🤍
-            </button>
-          </div>
+        <div className="img-thumbnail">
+          <img src={`https://image.tmdb.org/t/p/w200${url}`} alt={title} />
+        </div>
+
+        <div className="  ">
+          <button
+            className={`btn ${favorite ? "btn-success" : "btn-primary"}`}
+            onClick={onFavoriteClick}
+          >
+            🤍
+          </button>
         </div>
       </div>
     </>

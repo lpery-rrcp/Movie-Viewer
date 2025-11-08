@@ -66,7 +66,7 @@ function Home() {
         {loading ? (
           <div className="">Loading...</div>
         ) : (
-          <div className="">
+          <div className="list-group">
             {movies.map((movie) => (
               <MovieCard
                 key={movie.id}
