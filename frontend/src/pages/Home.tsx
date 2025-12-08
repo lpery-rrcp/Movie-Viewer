@@ -47,7 +47,7 @@ function Home() {
 
   return (
     <>
-      <div className="home">
+      <div className="">
         <form onSubmit={handleSearch} className="search form">
           <input
             type="text"
@@ -66,7 +66,7 @@ function Home() {
         {loading ? (
           <div className="">Loading...</div>
         ) : (
-          <div className="list-group">
+          <div className="movie-grid">
             {movies.map((movie) => (
               <MovieCard
                 key={movie.id}
