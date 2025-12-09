@@ -4,13 +4,14 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import { Routes, Route } from "react-router-dom";
 import { MovieProvider } from "./context/MovieContext";
+import { useEffect, useState } from "react";
 
 function App() {
   return (
     <>
       <MovieProvider>
         <NavBar />
-        <main className="">
+        <main className="dark">
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/favorites" element={<Favorite />}></Route>

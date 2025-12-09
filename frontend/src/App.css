@@ -27,22 +27,53 @@
 }
 
 .card {
-  display: fles;
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 12px;
   width: 100%;
   max-width: 320px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-border);
   border-radius: 10px;
-  background-color: #fff;
+  background: var(--card-bg);
+  padding: 1rem;
 }
+
 
 .img-thumbnail img {
   width: auto;
   height:auto;
   border-radius: 8px;
 }
+
+/*Light mode default*/
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+
+  --nav-bg: #00bcd4;   
+  --nav-text: #ffffff;
+
+  --card-bg: #ffffff;
+  --card-border: #cccccc;
+}
+
+/*Dark mode*/
+.dark {
+  --bg: #0d0f14;        
+  --text: #e4e4e4;
+
+  --nav-bg: #1e3a5f;    
+  --nav-text: #ffffff;
+
+  --card-bg: #1f2937;   
+  --card-border: #333333;
+}
+
+.dark img {
+  filter: brightness(0.9);
+}
+
 
 @keyframes logo-spin {
   from {
@@ -59,7 +90,26 @@
   }
 }
 
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  margin: 0;
+  padding: 0;
+  /*transition: background 0.2s ease, color 0.2s ease;*/
+}
+
+nav {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Cards inherit theme */
 .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
   padding: 2em;
 }
 
