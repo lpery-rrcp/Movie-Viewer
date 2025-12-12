@@ -21,7 +21,14 @@ function MovieCard({ id, title, url, release_date }: MovieCardProps) {
     <>
       <div className="card">
         <div className="img-thumbnail">
-          <img src={`https://image.tmdb.org/t/p/w200${url}`} alt={title} />
+          <img
+            src={
+              url.startsWith("http")
+                ? url
+                : `https://image.tmdb.org/t/p/w200${url}`
+            }
+            alt={title}
+          />
         </div>
 
         <div className="card-body">
